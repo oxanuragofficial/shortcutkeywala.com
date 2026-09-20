@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - ShortcutKeyWala</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .error-code { font-size: 6rem; font-weight: 800; background: var(--gradient-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+        .error-hero h1 { font-size: 1.6rem; margin: var(--space-4) 0 var(--space-2); }
+        .error-hero p { color: var(--text-secondary); margin-bottom: var(--space-6); }
+        .error-hero .search-box { margin-bottom: var(--space-6); }
+    </style>
+</head>
+<body>
+    <div class="error-hero">
+        <div class="error-code">404</div>
+        <div class="error-keycaps">
+            <kbd class="keycap">Ctrl</kbd><span class="keycap-sep">+</span><kbd class="keycap">F</kbd>
+        </div>
+        <h1>Shortcut not found</h1>
+        <p>That page doesn't exist or has moved. Try searching for the shortcut you need instead.</p>
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search for a shortcut…" autocomplete="off">
+        </div>
+        <a href="./" class="btn-primary" style="display:inline-block; text-decoration:none; width:auto; padding: var(--space-3) var(--space-6);">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+    <script>
+        document.getElementById('searchInput')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && this.value.trim()) {
+                // Relative path -- this site is served from a GitHub Pages project
+                // subpath, so an absolute "/" link would navigate away from it.
+                window.location.href = './?search=' + encodeURIComponent(this.value);
+            }
+        });
+    </script>
+</body>
+</html>

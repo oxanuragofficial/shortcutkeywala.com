@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Code Shortcuts Guide: Code Faster with 45 Essential Shortcuts | ShortcutKeyWala</title>
+    <meta name="description" content="Speed up your coding workflow with these essential Visual Studio Code keyboard shortcuts for editing, navigation, debugging, and more. Become a VS Code power user.">
+    <meta name="keywords" content="vs code shortcuts, visual studio code shortcuts, vscode keyboard shortcuts, code editor shortcuts, developer productivity">
+    <link rel="canonical" href="https://oxanuragofficial.github.io/shortcutkeywala1/blog-vs-code-shortcuts-guide.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .post-container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent-cyan); text-decoration: none; margin-bottom: 2rem; }
+        .post-header { text-align: center; margin-bottom: 2rem; }
+        .post-header h1 { font-size: 2.5rem; background: linear-gradient(135deg, #00e5ff, #a855f7); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+        .post-meta { color: var(--text-muted); display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        h2 { color: var(--accent-cyan); margin: 2rem 0 1rem; font-size: 1.5rem; }
+        .shortcut-table { background: var(--bg-card); border: 1px solid var(--border); border-radius: 1rem; overflow: hidden; margin: 1rem 0; }
+        .shortcut-row { display: grid; grid-template-columns: 1fr 2fr; border-bottom: 1px solid var(--border); padding: 0.875rem 1rem; transition: background 0.2s; }
+        .shortcut-row:hover { background: var(--bg-hover); }
+        .shortcut-row:last-child { border-bottom: none; }
+        .shortcut-keys { font-family: monospace; color: var(--accent-cyan); font-weight: bold; }
+        .pro-tip { background: rgba(0, 229, 255, 0.08); border-left: 4px solid var(--accent-cyan); padding: 1.25rem; margin: 1.5rem 0; border-radius: 0.75rem; }
+        @media (max-width: 768px) {
+            .post-header h1 { font-size: 1.75rem; }
+            .shortcut-row { grid-template-columns: 1fr; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body class="blog-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><i class="fas fa-keyboard"></i><span>ShortcutKeyWala</span></div>
+            <div class="nav-links"><a href="./">Home</a><a href="./#apps">Apps</a><a href="./#shortcuts">All Shortcuts</a><a href="blog.html">Blog</a><button id="themeToggle" class="theme-btn" aria-label="Toggle dark/light theme"><i class="fas fa-moon"></i></button></div>
+        </div>
+    </nav>
+    
+    <div class="post-container">
+        <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+        
+        <div class="post-header">
+            <h1>💻 VS Code Shortcuts Guide: Code Faster with 45 Essential Shortcuts</h1>
+            <div class="post-meta">
+                <span><i class="far fa-calendar"></i> December 20, 2024</span>
+                <span><i class="far fa-clock"></i> 9 min read</span>
+                <span><i class="fas fa-keyboard"></i> 45 shortcuts</span>
+                <span><i class="fab fa-code"></i> Developer Productivity</span>
+            </div>
+        </div>
+        
+        <p>Visual Studio Code is the most popular code editor among developers worldwide. Mastering VS Code keyboard shortcuts can dramatically speed up your coding workflow, reduce repetitive tasks, and make you a more efficient developer. Studies show that developers using shortcuts code up to 30% faster!</p>
+        
+        <div class="pro-tip">
+            <strong><i class="fas fa-lightbulb"></i> Pro Tip:</strong> The Command Palette (Ctrl+Shift+P) is your best friend - it gives you access to every VS Code command without memorizing them all!
+        </div>
+        
+        <h2>1. 🎯 General & Navigation Shortcuts</h2>
+        <div class="shortcut-table">
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Shift + P</div><div class="shortcut-action">Command Palette (Access any command)</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + P</div><div class="shortcut-action">Quick Open - Go to File</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Tab</div><div class="shortcut-action">Navigate between open files</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Shift + Tab</div><div class="shortcut-action">Navigate backwards between files</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + G</div><div class="shortcut-action">Go to Line number</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + T</div><div class="shortcut-action">Show all Symbols (functions, classes)</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Shift + O</div><div class="shortcut-action">Go to Symbol in file</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">F12</div><div class="shortcut-action">Go to Definition</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Alt + F12</div><div class="shortcut-action">Peek Definition (inline preview)</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Shift + F12</div><div class="shortcut-action">Show all References</div></div>
+        </div>
+        
+        <h2>2. ✏️ Editing Shortcuts</h2>
+        <div class="shortcut-table">
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + X</div><div class="shortcut-action">Cut line (no selection needed)</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + C</div><div class="shortcut-action">Copy line (no selection needed)</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + V</div><div class="shortcut-action">Paste</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Alt + Up/Down</div><div class="shortcut-action">Move line up/down</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Shift + Alt + Up/Down</div><div class="shortcut-action">Copy line up/down</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Shift + K</div><div class="shortcut-action">Delete line</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Enter</div><div class="shortcut-action">Insert line below</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Shift + Enter</div><div class="shortcut-action">Insert line above</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + D</div><div class="shortcut-action">Add selection to next Find match</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + U</div><div class="shortcut-action">Undo last cursor operation</div></div>
+        </div>
+        
+        <h2>3. 🔍 Search & Replace Shortcuts</h2>
+        <div class="shortcut-table">
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + F</div><div class="shortcut-action">Find in current file</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + H</div><div class="shortcut-action">Replace in current file</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Shift + F</div><div class="shortcut-action">Find in entire project</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Shift + H</div><div class="shortcut-action">Replace in entire project</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">F3 / Shift + F3</div><div class="shortcut-action">Find next/previous</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Alt + Enter</div><div class="shortcut-action">Select all occurrences of Find match</div></div>
+        </div>
+        
+        <h2>4. 🖱️ Multi-Cursor Shortcuts</h2>
+        <div class="shortcut-table">
+            <div class="shortcut-row"><div class="shortcut-keys">Alt + Click</div><div class="shortcut-action">Insert cursor at click position</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Alt + Up/Down</div><div class="shortcut-action">Insert cursor above/below</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Shift + L</div><div class="shortcut-action">Select all occurrences of current selection</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + F2</div><div class="shortcut-action">Select all occurrences of current word</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Shift + Alt + I</div><div class="shortcut-action">Insert cursor at end of each selected line</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Shift + Right/Left</div><div class="shortcut-action">Expand/Shrink selection</div></div>
+        </div>
+        
+        <h2>5. 💬 Comment & Formatting Shortcuts</h2>
+        <div class="shortcut-table">
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + /</div><div class="shortcut-action">Toggle line comment</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Shift + Alt + A</div><div class="shortcut-action">Toggle block comment</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Shift + Alt + F</div><div class="shortcut-action">Format document</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + K + Ctrl + F</div><div class="shortcut-action">Format selection</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + K + Ctrl + C</div><div class="shortcut-action">Add line comment</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + K + Ctrl + U</div><div class="shortcut-action">Remove line comment</div></div>
+        </div>
+        
+        <h2>6. 🐛 Debug Shortcuts</h2>
+        <div class="shortcut-table">
+            <div class="shortcut-row"><div class="shortcut-keys">F5</div><div class="shortcut-action">Start Debugging / Continue</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">F9</div><div class="shortcut-action">Toggle Breakpoint</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">F10</div><div class="shortcut-action">Step Over</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">F11</div><div class="shortcut-action">Step Into</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Shift + F11</div><div class="shortcut-action">Step Out</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Shift + F5</div><div class="shortcut-action">Stop Debugging</div></div>
+            <div class="shortcut-row"><div class="shortcut-keys">Ctrl + Shift + D</div><div class="shortcut-action">Open Debug view</div></div>
+        </div>
+        
+        <div class="pro-tip">
+            <strong><i class="fas fa-star"></i> Top 10 VS Code Shortcuts You'll Use Every Day:</strong>
+            <ol style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><strong>Ctrl + Shift + P</strong> - Command Palette (access everything)</li>
+                <li><strong>Ctrl + P</strong> - Quick Open (open any file instantly)</li>
+                <li><strong>Ctrl + Shift + F</strong> - Find in Files (search entire project)</li>
+                <li><strong>Ctrl + D</strong> - Multi-cursor selection (edit multiple lines at once)</li>
+                <li><strong>Ctrl + /</strong> - Toggle comment (comment/uncomment quickly)</li>
+                <li><strong>Shift + Alt + F</strong> - Format Document (auto-format code)</li>
+                <li><strong>F12</strong> - Go to Definition (jump to function/class definition)</li>
+                <li><strong>Alt + Up/Down</strong> - Move line (rearrange code quickly)</li>
+                <li><strong>Ctrl + `</strong> - Toggle Terminal (open integrated terminal)</li>
+                <li><strong>F5</strong> - Start Debugging (run your code with breakpoints)</li>
+            </ol>
+        </div>
+        
+        <div class="pro-tip">
+            <strong><i class="fas fa-graduation-cap"></i> How to Master VS Code Shortcuts:</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>✅ Install the "Keyboard Shortcuts" reference extension</li>
+                <li>✅ Use the Command Palette (Ctrl+Shift+P) to discover new commands</li>
+                <li>✅ Customize shortcuts that don't work for your workflow (Ctrl+K Ctrl+S)</li>
+                <li>✅ Practice with the "Multi-cursor" shortcuts - they're game changers</li>
+                <li>✅ Learn the debug shortcuts for faster troubleshooting</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="relatedArticles"></div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div><h3><i class="fas fa-keyboard"></i> ShortcutKeyWala</h3><p>Master every keyboard shortcut. Boost productivity 10x.</p></div>
+            <div><h4>Quick Links</h4><a href="./">Home</a><a href="./#apps">Apps</a><a href="./#shortcuts">All Shortcuts</a><a href="blog.html">Blog</a><button class="theme-btn" aria-label="Toggle dark/light theme"><i class="fas fa-moon"></i></button></div>
+        </div>
+        <div class="footer-bottom"><p>© 2024 ShortcutKeyWala - Master Keyboard Shortcuts, Boost Productivity</p></div>
+    </footer>
+    <script src="blog-common.js"></script>
+</body>
+</html>

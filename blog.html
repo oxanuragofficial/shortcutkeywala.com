@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShortcutKeyWala Blog - Productivity Tips & Keyboard Shortcut Guides</title>
+    <meta name="description" content="Expert tips, tricks, and guides to master keyboard shortcuts and boost your productivity across Windows, Mac, Linux, and all major applications.">
+    <meta name="keywords" content="productivity blog, keyboard shortcuts tips, excel tips, outlook productivity, windows shortcuts guide, mac shortcuts tutorial">
+    <link rel="canonical" href="https://oxanuragofficial.github.io/shortcutkeywala1/blog.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-header {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: radial-gradient(ellipse at top, rgba(0, 229, 255, 0.1), transparent);
+        }
+        .blog-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #00e5ff, #a855f7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        .blog-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .featured-article {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 1rem;
+        }
+        .featured-article a {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            text-decoration: none;
+            color: inherit;
+        }
+        .featured-article a:hover { border-color: var(--accent-cyan); }
+        .featured-label {
+            display: inline-block;
+            background: rgba(0,229,255,0.12);
+            color: var(--accent-cyan);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-pill);
+            margin-bottom: 1rem;
+        }
+        .featured-article h2 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+        .featured-visual {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        .tag-filter-bar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tag-filter-bar button {
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            border-radius: var(--radius-pill);
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        .tag-filter-bar button.active {
+            background: rgba(0,229,255,0.12);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+        @media (max-width: 768px) {
+            .featured-article a { grid-template-columns: 1fr; padding: 1.5rem; }
+        }
+        .blog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: var(--shadow-glow);
+        }
+        .blog-card .category {
+            color: var(--accent-cyan);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .blog-card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .blog-card p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body class="blog-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-keyboard"></i>
+                <span>ShortcutKeyWala Blog</span>
+            </div>
+            <div class="nav-links">
+                <a href="./">Home</a>
+                <a href="./#apps">Apps</a>
+                <a href="./#shortcuts">All Shortcuts</a>
+                <button id="themeToggle" class="theme-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="blog-header">
+        <h1><i class="fas fa-blog"></i> ShortcutKeyWala Blog</h1>
+        <p>Expert productivity tips, keyboard shortcut guides, and workflow optimization strategies</p>
+    </div>
+
+    <div class="featured-article">
+        <a href="blog-vs-code-shortcuts-guide.html">
+            <div>
+                <span class="featured-label"><i class="fas fa-star"></i> Featured Guide</span>
+                <h2>VS Code Shortcuts Guide: Code Faster with 45 Essential Shortcuts</h2>
+                <p>Speed up your coding workflow with essential Visual Studio Code shortcuts for editing, navigation, debugging, terminal, and source control.</p>
+                <div class="blog-meta">
+                    <span><i class="far fa-clock"></i> 9 min read</span>
+                    <span><i class="fas fa-keyboard"></i> 45 shortcuts</span>
+                </div>
+            </div>
+            <div class="featured-visual">
+                <kbd class="keycap">Ctrl</kbd><span class="keycap-sep">+</span><kbd class="keycap">Shift</kbd><span class="keycap-sep">+</span><kbd class="keycap">P</kbd>
+            </div>
+        </a>
+    </div>
+
+    <div class="tag-filter-bar" id="tagFilterBar">
+        <button class="active" data-tag="all">All guides</button>
+        <button data-tag="excel">Excel</button>
+        <button data-tag="outlook">Outlook</button>
+        <button data-tag="windows">Windows</button>
+        <button data-tag="macos">macOS</button>
+        <button data-tag="design">Design</button>
+    </div>
+    
+    <div class="blog-grid">
+        <a href="blog-top-50-excel-shortcuts.html" class="blog-card" data-tag="excel">
+            <div class="category"><i class="fas fa-table"></i> MICROSOFT EXCEL</div>
+            <h2>Top 50 Excel Shortcut Keys Every Professional Should Know</h2>
+            <p>Master Excel like a pro with these essential keyboard shortcuts for navigation, formulas, formatting, and data analysis.</p>
+            <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> Jan 15, 2024</span>
+                <span><i class="far fa-clock"></i> 8 min read</span>
+                <span><i class="fas fa-keyboard"></i> 63 shortcuts</span>
+            </div>
+        </a>
+        
+        <a href="blog-outlook-productivity-guide.html" class="blog-card" data-tag="outlook">
+            <div class="category"><i class="fas fa-envelope"></i> MICROSOFT OUTLOOK</div>
+            <h2>Outlook Productivity Guide: 42 Shortcuts to Master Your Inbox</h2>
+            <p>Transform your email workflow with these powerful Outlook shortcuts for faster replies, calendar management, and task organization.</p>
+            <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> Jan 10, 2024</span>
+                <span><i class="far fa-clock"></i> 10 min read</span>
+                <span><i class="fas fa-keyboard"></i> 42 shortcuts</span>
+            </div>
+        </a>
+        
+        <a href="blog-windows-11-shortcuts.html" class="blog-card" data-tag="windows">
+            <div class="category"><i class="fab fa-windows"></i> WINDOWS 11</div>
+            <h2>Windows 11 Shortcuts: 32 Keyboard Shortcuts to Boost Productivity</h2>
+            <p>Discover the most useful Windows 11 keyboard shortcuts for navigation, window management, virtual desktops, and system commands.</p>
+            <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> Jan 5, 2024</span>
+                <span><i class="far fa-clock"></i> 12 min read</span>
+                <span><i class="fas fa-keyboard"></i> 32 shortcuts</span>
+            </div>
+        </a>
+        
+        <a href="blog-macos-shortcuts-cheatsheet.html" class="blog-card" data-tag="macos">
+            <div class="category"><i class="fab fa-apple"></i> MACOS</div>
+            <h2>macOS Shortcuts Cheatsheet: Master Your Mac with 27 Shortcuts</h2>
+            <p>Complete guide to macOS keyboard shortcuts for Finder, Spotlight, Mission Control, screenshots, and system navigation.</p>
+            <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> Dec 15, 2024</span>
+                <span><i class="far fa-clock"></i> 11 min read</span>
+                <span><i class="fas fa-keyboard"></i> 27 shortcuts</span>
+            </div>
+        </a>
+        
+        <a href="blog-photoshop-shortcuts-mastery.html" class="blog-card" data-tag="design">
+            <div class="category"><i class="fas fa-palette"></i> ADOBE PHOTOSHOP</div>
+            <h2>Photoshop Shortcuts Mastery: 50 Shortcuts for Designers</h2>
+            <p>Speed up your design workflow with these essential Adobe Photoshop keyboard shortcuts for layers, tools, transformations, and adjustments.</p>
+            <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> Dec 10, 2024</span>
+                <span><i class="far fa-clock"></i> 10 min read</span>
+                <span><i class="fas fa-keyboard"></i> 50 shortcuts</span>
+            </div>
+        </a>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3><i class="fas fa-keyboard"></i> ShortcutKeyWala</h3>
+                <p>Master every keyboard shortcut. Boost productivity 10x.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="./">Home</a>
+                <a href="./#apps">Apps</a>
+                <a href="./#shortcuts">All Shortcuts</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 ShortcutKeyWala. Master keyboard shortcuts, boost productivity.</p>
+        </div>
+    </footer>
+    
+    <script src="blog-common.js"></script>
+</body>
+</html>

@@ -1,0 +1,1617 @@
+/* style.css - Modern Dark Theme */
+
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #0f0f14;
+    --bg-card: #15151d;
+    --bg-hover: #1e1e2a;
+    --bg-glass: rgba(21, 21, 29, 0.8);
+    --border: #2a2a33;
+    --border-hover: #3a3a4a;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --text-muted: #6b6b7a;
+    --accent-cyan: #00e5ff;
+    --accent-purple: #a855f7;
+    --accent-pink: #ec4899;
+    --accent-green: #10b981;
+    --accent-orange: #f59e0b;
+    --gradient-1: linear-gradient(135deg, #00e5ff, #a855f7);
+    --gradient-2: linear-gradient(135deg, #a855f7, #ec4899);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(0, 229, 255, 0.15);
+
+    /* Spacing scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+
+    /* Radius scale */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+}
+
+/* ==================== KEYCAP COMPONENT ====================
+   One reusable rendering unit for every rendered shortcut key, used via
+   the renderKeycaps() JS helper. Keeps every keyboard combination visually
+   distinct instead of a single unreadable text pill. */
+.shortcut-keys {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.keycap {
+    font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--bg-hover);
+    border: 1px solid var(--border-hover);
+    border-bottom-width: 2px;
+    border-radius: var(--radius-sm);
+    padding: 0.45rem 0.75rem;
+    white-space: nowrap;
+    line-height: 1.3;
+}
+
+.keycap-sep {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding: 0 var(--space-1);
+}
+
+@media (max-width: 480px) {
+    .keycap {
+        font-size: 0.75rem;
+        padding: 0.2rem var(--space-2);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.5;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light Theme */
+body.light {
+    --bg-primary: #f5f5f7;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-glass: rgba(255, 255, 255, 0.9);
+    --bg-hover: #f0f0f2;
+    --border: #e0e0e6;
+    --border-hover: #c0c0cc;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a5a;
+    --text-muted: #8a8a9a;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
+
+/* Navigation */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+}
+
+body.light .navbar {
+    background: rgba(245, 245, 247, 0.95);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: inherit;
+    background: var(--gradient-1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.logo i {
+    background: none;
+    -webkit-text-fill-color: var(--accent-cyan);
+    font-size: 1.8rem;
+}
+
+.badge {
+    background: var(--gradient-2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    -webkit-text-fill-color: white;
+    background-clip: unset;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links a:hover {
+    color: var(--accent-cyan);
+    transform: translateY(-2px);
+}
+
+.theme-btn {
+    background: var(--bg-hover);
+    border: 1px solid var(--border);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: all 0.2s;
+}
+
+.theme-btn:hover {
+    border-color: var(--accent-cyan);
+    transform: scale(1.05);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    z-index: 999;
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.mobile-menu a:hover {
+    background: var(--bg-hover);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: radial-gradient(ellipse at top, rgba(0, 229, 255, 0.1), transparent);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: var(--gradient-1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    border: 1px solid var(--border);
+}
+
+.stat-card i {
+    color: var(--accent-cyan);
+    margin-right: 0.5rem;
+}
+
+/* OS Cards */
+.os-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.os-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.os-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.os-card:hover::before {
+    left: 100%;
+}
+
+.os-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-cyan);
+    box-shadow: var(--shadow-glow);
+}
+
+.os-card i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.os-card.windows i { color: var(--accent-cyan); }
+.os-card.mac i { color: var(--text-secondary); }
+.os-card.linux i { color: var(--accent-green); }
+.os-card.apps i { color: var(--accent-purple); }
+
+.os-card h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.os-card p {
+    color: var(--text-muted);
+}
+
+.os-card .shortcut-count {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--accent-cyan);
+}
+
+/* Apps Header */
+.apps-header {
+    margin-bottom: 2rem;
+}
+
+.apps-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.apps-header h2 i {
+    color: var(--accent-cyan);
+    margin-right: 0.5rem;
+}
+
+/* Search & Filter */
+.search-filter {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+}
+
+.search-box i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 2.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.1);
+}
+
+/* Apps Grid */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.app-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gradient-1);
+    transition: width 0.3s;
+}
+
+.app-card:hover::after {
+    width: 100%;
+}
+
+.app-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-cyan);
+    box-shadow: var(--shadow-glow);
+}
+
+.app-card i {
+    font-size: 2rem;
+    color: var(--accent-cyan);
+    margin-bottom: 0.75rem;
+}
+
+.app-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.app-card .category {
+    color: var(--accent-purple);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.app-card .shortcut-count {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* Shortcut Cards */
+.shortcuts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.shortcut-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    padding: 0.6rem 1.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    cursor: pointer;
+}
+
+.shortcut-card:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 1px rgba(0,229,255,0.15), 0 8px 24px -8px rgba(0,229,255,0.25);
+}
+
+.shortcut-card:active {
+    transform: scale(0.997);
+}
+
+.shortcut-card:focus-visible {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 2px;
+    border-color: var(--accent-cyan);
+}
+
+body.light .shortcut-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4));
+}
+
+.shortcut-card:focus-within {
+    border-color: var(--accent-cyan);
+}
+
+/* Single horizontal row on desktop: [keys] [name] [app/category] all sit
+   inline, vertically centered, rather than stacked as separate lines.
+   Column roles:
+     - .shortcut-keys  : fixed width, never shrinks -- the strongest visual
+                         element (boxed keycaps), always fully visible.
+     - .shortcut-action: the flexible column. Grows to fill space but can
+                         shrink and truncates with an ellipsis, so a long
+                         shortcut name degrades gracefully instead of
+                         breaking the row or forcing horizontal scroll.
+     - .shortcut-meta  : fixed width, secondary/muted text, sits just
+                         before the action buttons.
+   Reverts to a stacked composition at <=700px (see media query below). */
+.shortcut-card-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: var(--space-4);
+    min-width: 0;
+    flex: 1 1 320px;
+}
+
+.shortcut-card-main .shortcut-keys {
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+
+.shortcut-action {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0;
+    flex: 1 1 0%;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.shortcut-meta {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--space-2);
+    align-items: center;
+    flex: 0 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.shortcut-meta .dot { opacity: 0.5; }
+
+.shortcut-card-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.shortcut-expand {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    flex-basis: 100%;
+    margin: 0 calc(-1 * var(--space-6)) calc(-1 * var(--space-4));
+}
+
+.shortcut-expand.open {
+    max-height: 400px;
+    padding: var(--space-4) var(--space-6);
+    margin-top: var(--space-2);
+}
+
+.expand-content {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.expand-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.expand-content strong {
+    color: var(--accent-cyan);
+}
+
+/* Mobile shortcut cards stay a single horizontal row (not stacked). Instead of
+   switching to flex-direction:column, we progressively compact padding/gaps/
+   font sizes and, at phone widths, hide the lowest-priority content first
+   (button text labels, then category/platform meta) so keys and the
+   shortcut name always remain on one line without ever wrapping to multiple
+   rows or causing horizontal overflow. */
+/* Mobile shortcut cards use CSS Grid with explicit, protected columns instead
+   of flexbox. This guarantees favorite/details/copy can never overlap the
+   keys/name/meta content, because grid tracks cannot overlap by definition --
+   unlike flex children, which can visually collide if width math is off at a
+   real device width. `display: contents` on the two inner wrapper divs lets
+   their children (keys/name/meta and favorite/details/copy) become direct
+   grid items of .shortcut-card without any HTML restructuring. */
+@media (max-width: 700px) {
+    .shortcut-card {
+        display: grid;
+        grid-template-columns: minmax(0, max-content) minmax(0, 1.3fr) minmax(0, 1fr) auto;
+        align-items: center;
+        column-gap: 0.5rem;
+        row-gap: 0;
+        padding: 0.5rem 0.75rem;
+    }
+    .shortcut-card-main {
+        display: contents;
+    }
+    .shortcut-card-actions {
+        display: contents;
+    }
+    .shortcut-card-main .shortcut-keys {
+        min-width: 0;
+        overflow: hidden;
+    }
+    .shortcut-action {
+        min-width: 0;
+    }
+    .shortcut-meta {
+        min-width: 0;
+    }
+    .favorite-btn {
+        flex-shrink: 0;
+        padding: 0.5rem 0.7rem;
+        min-height: 38px;
+    }
+    .shortcut-expand {
+        grid-column: 1 / -1;
+    }
+}
+
+.os-section-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.os-section-card,
+.command-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+}
+
+.os-section-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.os-section-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.os-section-card:hover::before {
+    left: 100%;
+}
+
+.os-section-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-cyan);
+    box-shadow: var(--shadow-glow);
+}
+
+.os-section-card i {
+    color: var(--accent-cyan);
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.os-section-card h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.os-section-card p {
+    color: var(--text-muted);
+}
+
+.os-section-card:focus-visible {
+    border-color: var(--accent-cyan);
+    transform: translateY(-8px);
+    outline: none;
+}
+
+.os-section-card i {
+    color: var(--accent-cyan);
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.os-section-card h2,
+.command-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.os-section-card p,
+.command-card p,
+.command-card small {
+    color: var(--text-secondary);
+}
+
+.command-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.command-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.command-card > code {
+    display: block;
+    color: var(--accent-cyan);
+    background: var(--bg-secondary);
+    padding: 0.7rem;
+    border-radius: 0.4rem;
+    overflow-wrap: anywhere;
+    margin-bottom: 0.75rem;
+}
+
+.command-card small code {
+    color: var(--text-primary);
+}
+
+.terminal-command-card {
+    display: grid;
+    grid-template-columns: minmax(150px, 0.85fr) minmax(150px, 1fr) minmax(0, 1.6fr) auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 1.1rem;
+}
+
+.terminal-command-text,
+.terminal-command-name,
+.terminal-command-details {
+    min-width: 0;
+}
+
+.terminal-command-name,
+.terminal-command-description,
+.terminal-command-usage {
+    margin: 0;
+}
+
+.terminal-command-name {
+    font-size: 1rem;
+}
+
+.terminal-command-text {
+    color: var(--accent-cyan);
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+.terminal-command-details {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.terminal-command-description,
+.terminal-command-usage {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.terminal-command-shell {
+    color: var(--accent-cyan);
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+    .os-section-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .command-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .terminal-command-card {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+        gap: 0.5rem;
+    }
+
+    .terminal-command-details {
+        grid-column: 1 / -1;
+    }
+
+    .terminal-command-shell {
+        justify-self: end;
+    }
+}
+
+@media (max-width: 480px) {
+    .shortcut-card {
+        padding: 0.45rem 0.5rem;
+        column-gap: 0.35rem;
+    }
+    .shortcut-card-main .shortcut-keys .keycap {
+        font-size: 0.78rem;
+        padding: 0.3rem 0.5rem;
+    }
+    .shortcut-action {
+        font-size: 0.9rem;
+    }
+    .shortcut-meta {
+        font-size: 0.72rem;
+    }
+    /* Favorite is icon-only at every width. */
+    .favorite-btn {
+        padding: 0.4rem 0.5rem;
+        min-width: 36px;
+        min-height: 36px;
+    }
+    .shortcut-expand {
+        margin: 0.4rem -0.5rem -0.45rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .shortcut-card {
+        padding: 0.4rem 0.4rem;
+        column-gap: 0.3rem;
+    }
+    .shortcut-card-main .shortcut-keys .keycap {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.35rem;
+    }
+    .keycap-sep {
+        padding: 0 0.1rem;
+    }
+    .shortcut-action {
+        font-size: 0.82rem;
+    }
+    /* Category/platform must remain visible at every width -- compacted via
+       smaller font and tighter gap rather than hidden. */
+    .shortcut-meta {
+        font-size: 0.65rem;
+        gap: 0.25rem;
+    }
+}
+
+/* Category Section */
+.category-section {
+    margin-bottom: 2rem;
+}
+
+.category-title {
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--accent-cyan);
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+    transition: gap 0.2s;
+}
+
+.back-btn:hover {
+    gap: 0.75rem;
+}
+
+/* All Shortcuts Page */
+.all-shortcuts-header {
+    margin-bottom: 2rem;
+}
+
+.all-shortcuts-header h1 {
+    font-size: 2.5rem;
+    background: var(--gradient-1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.stat-badge {
+    background: var(--bg-card);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    border: 1px solid var(--border);
+}
+
+.stat-badge i {
+    margin-right: 0.5rem;
+}
+
+.platform-filter {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.platform-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.platform-btn:hover, .platform-btn.active {
+    background: var(--accent-purple);
+    border-color: var(--accent-purple);
+    color: white;
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    padding: 3rem 2rem 1rem;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-content h3, .footer-content h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-content h3 i {
+    color: var(--accent-cyan);
+    margin-right: 0.5rem;
+}
+
+.footer-content a {
+    display: block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+}
+
+.footer-content a:hover {
+    color: var(--accent-cyan);
+}
+
+.stats-text {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--accent-green);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* Loading State */
+.loading {
+    text-align: center;
+    padding: 4rem;
+    color: var(--text-secondary);
+}
+
+.loading i {
+    font-size: 2rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 4rem;
+    color: var(--text-secondary);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* Tooltip */
+.tooltip {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--accent-cyan);
+    color: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-search-trigger { display: none; }
+    .mobile-menu-btn { display: block; }
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .hero-stats { flex-direction: column; align-items: center; }
+    .os-grid { grid-template-columns: 1fr; padding: 1rem; }
+    .apps-grid { grid-template-columns: 1fr; }
+    .search-filter { flex-direction: column; }
+    .footer-content { grid-template-columns: 1fr; text-align: center; }
+    .filter-bar-inline { display: none; }
+    .mobile-filter-trigger { display: inline-flex; }
+}
+
+@media (max-width: 480px) {
+    .nav-container { padding: 0 1rem; }
+    .hero { padding: 2rem 1rem; }
+    .keycap { font-size: 0.85rem; padding: 0.35rem 0.6rem; }
+    .platform-btn { padding: 0.5rem 1rem; font-size: 0.875rem; }
+    .badge { display: none; }
+}
+
+/* ==================== ACCESSIBILITY: SKIP LINK & FOCUS ==================== */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--accent-cyan);
+    color: var(--bg-primary);
+    padding: var(--space-2) var(--space-4);
+    z-index: 2000;
+    border-radius: 0 0 var(--radius-sm) 0;
+    font-weight: 600;
+}
+.skip-link:focus {
+    left: 0;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==================== NAV SEARCH TRIGGER ==================== */
+.nav-search-trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--bg-hover);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    border-radius: var(--radius-pill);
+    padding: var(--space-2) var(--space-4);
+    cursor: pointer;
+    flex: 1 1 320px;
+    max-width: 420px;
+    margin: 0 var(--space-4);
+    font-size: 0.9rem;
+}
+.nav-search-trigger:hover, .nav-search-trigger:focus-visible {
+    border-color: var(--accent-cyan);
+    color: var(--text-primary);
+}
+.nav-search-trigger span { flex: 1; text-align: left; }
+.nav-search-hint {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.45rem;
+}
+
+.mobile-search-trigger {
+    width: 100%;
+    text-align: left;
+    background: var(--bg-hover);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    margin-bottom: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* ==================== COMMAND PALETTE ==================== */
+.command-palette-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 10vh;
+    z-index: 3000;
+}
+.command-palette-backdrop[hidden] { display: none; }
+
+.command-palette {
+    background: var(--bg-card);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-lg);
+    width: min(640px, 92vw);
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.cp-input-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border);
+}
+.cp-input-row input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+}
+.cp-input-row button {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.cp-results {
+    overflow-y: auto;
+    padding: var(--space-2);
+}
+
+.cp-result-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+.cp-result-item.active, .cp-result-item:hover {
+    background: var(--bg-hover);
+}
+.cp-result-main { min-width: 0; flex: 1; }
+.cp-result-action { font-weight: 600; color: var(--text-primary); font-size: 0.95rem; }
+.cp-result-meta { color: var(--text-muted); font-size: 0.78rem; margin-top: 0.15rem; }
+.cp-result-type {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-pill);
+    background: rgba(0,229,255,0.12);
+    color: var(--accent-cyan);
+    white-space: nowrap;
+}
+
+.cp-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    padding: var(--space-2) var(--space-4);
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+.cp-footer .keycap-tiny { font-size: 0.65rem; padding: 0.1rem 0.35rem; }
+
+.cp-empty {
+    padding: var(--space-8) var(--space-4);
+    text-align: center;
+    color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+    .command-palette-backdrop { padding-top: 0; align-items: stretch; }
+    .command-palette { width: 100%; max-height: 100vh; border-radius: 0; height: 100%; }
+}
+
+/* ==================== FILTER BAR / CHIPS / SORT ==================== */
+.filter-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.filter-chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.filter-chip {
+    background: var(--bg-hover);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    border-radius: var(--radius-pill);
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+.filter-chip.active {
+    background: rgba(0,229,255,0.12);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.sort-select {
+    margin-left: auto;
+    background: var(--bg-hover);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.85rem;
+}
+
+.active-filters-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.active-filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    background: rgba(0,229,255,0.1);
+    color: var(--accent-cyan);
+    border-radius: var(--radius-pill);
+    padding: 0.2rem 0.35rem 0.2rem 0.7rem;
+    font-size: 0.78rem;
+}
+.active-filter-pill button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 0 0.25rem;
+}
+
+.clear-all-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.result-count {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+}
+
+.mobile-filter-trigger {
+    display: none;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--bg-hover);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-4);
+    cursor: pointer;
+    margin-bottom: var(--space-4);
+}
+
+/* ==================== MOBILE FILTER DRAWER ==================== */
+.filter-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2500;
+    display: flex;
+    align-items: flex-end;
+}
+.filter-drawer-backdrop[hidden] { display: none; }
+
+.filter-drawer {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    width: 100%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.filter-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border);
+}
+.filter-drawer-header button {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.filter-drawer-body {
+    padding: var(--space-4);
+    overflow-y: auto;
+}
+.filter-drawer-body h4 {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: var(--space-4) 0 var(--space-2);
+}
+.filter-drawer-body h4:first-child { margin-top: 0; }
+
+.filter-drawer-footer {
+    padding: var(--space-4);
+    border-top: 1px solid var(--border);
+}
+
+.btn-primary {
+    width: 100%;
+    background: var(--accent-cyan);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Blog pages have no mobile hamburger menu (they're simpler static pages),
+   so the shared ".nav-links { display:none }" mobile rule would leave them
+   with no navigation at all. Keep nav links visible and let them wrap. */
+@media (max-width: 768px) {
+    body.blog-page .nav-links {
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: var(--space-3);
+        justify-content: center;
+        width: 100%;
+        margin-top: var(--space-2);
+    }
+    body.blog-page .nav-container {
+        flex-wrap: wrap;
+    }
+}
+
+.favorite-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.favorite-btn:hover, .favorite-btn:focus-visible {
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+.favorite-btn.active {
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.nav-fav-count {
+    background: var(--accent-orange);
+    color: var(--bg-primary);
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    padding: 0.05rem 0.4rem;
+    margin-left: var(--space-1);
+}
+
+/* ==================== ARTICLE TABLE OF CONTENTS ==================== */
+.toc {
+    max-width: 760px;
+    margin: 0 auto 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+}
+.toc summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-primary);
+    list-style: none;
+}
+.toc summary::-webkit-details-marker { display: none; }
+.toc summary::after {
+    content: '▾';
+    float: right;
+    color: var(--text-muted);
+    transition: transform 0.2s;
+}
+.toc[open] summary::after { transform: rotate(180deg); }
+.toc nav { margin-top: 0.75rem; }
+.toc ol {
+    list-style: none;
+    counter-reset: toc-counter;
+    display: grid;
+    gap: 0.4rem;
+}
+.toc li { counter-increment: toc-counter; }
+.toc li::before {
+    content: counter(toc-counter) '.';
+    color: var(--accent-cyan);
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+.toc a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+}
+.toc a:hover, .toc a.active { color: var(--accent-cyan); }
+
+/* Headings become programmatically focusable targets (tabindex="-1" set by JS);
+   give them a visible focus ring so keyboard/TOC-click users can see where they landed. */
+.post-container h2:focus-visible {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+@media (max-width: 480px) {
+    .toc { padding: 0.85rem 1rem; margin-bottom: 1.5rem; }
+    .toc summary { font-size: 0.95rem; }
+}
+
+/* ==================== BLOG ARTICLE: RELATED + PREV/NEXT ==================== */
+#relatedArticles {
+    max-width: 760px;
+    margin: 3rem auto 0;
+    padding: 0 1.5rem;
+}
+#relatedArticles h2 { font-size: 1.2rem; margin-bottom: 1rem; }
+.related-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+.related-article-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+}
+.related-article-card i {
+    flex-shrink: 0;
+}
+.related-article-card:hover { border-color: var(--accent-cyan); }
+.article-prev-next {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+}
+.article-prev-next a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-size: 0.9rem;
+    max-width: 45%;
+}
+@media (max-width: 480px) {
+    .article-prev-next a { max-width: 100%; font-size: 0.82rem; }
+}
+
+/* ==================== 404 PAGE ==================== */
+.error-hero {
+    text-align: center;
+    padding: var(--space-8) var(--space-4);
+    max-width: 480px;
+    margin: 0 auto;
+}
+.error-hero .error-keycaps {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}

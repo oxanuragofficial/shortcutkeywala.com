@@ -1,0 +1,8 @@
+# robots.txt for ShortcutKeyWala
+# Allow all crawlers to index the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://oxanuragofficial.github.io/shortcutkeywala1/sitemap.xml

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ShortcutKeyWala – Keyboard Shortcuts for Windows, Mac & Linux</title>
+    <meta name="description" content="A free, open-source reference for keyboard shortcuts across Windows, macOS, Linux, and popular apps like Excel, Word, VS Code, and Figma. Fast, searchable, and always growing.">
+    <meta name="keywords" content="keyboard shortcuts, windows shortcuts, mac shortcuts, linux shortcuts, excel shortcut keys, outlook shortcuts, photoshop shortcuts, vs code shortcuts, productivity">
+    <meta name="author" content="ShortcutKeyWala">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://oxanuragofficial.github.io/shortcutkeywala1/">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00e5ff">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oxanuragofficial.github.io/shortcutkeywala1/">
+    <meta property="og:title" content="ShortcutKeyWala – Master Every Keyboard Shortcut">
+    <meta property="og:description" content="A free, open-source keyboard shortcuts reference for Windows, macOS, Linux & popular apps.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=20260920">
+</head>
+<body>
+    <script>
+        // Runs synchronously before paint to avoid a flash of the wrong theme.
+        // Mirrors the default-light logic in app.js's loadThemePreference().
+        (function () {
+            var t = localStorage.getItem('shortcutkeywala-theme') || localStorage.getItem('theme');
+            if (t !== 'dark') document.body.classList.add('light');
+        })();
+    </script>
+    <a class="skip-link" href="#appRoot">Skip to content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="logo" id="logoHome" type="button" aria-label="ShortcutKeyWala home">
+                <i class="fas fa-keyboard"></i>
+                <span>ShortcutKeyWala</span>
+                <span class="badge" id="headerBadge">Shortcuts</span>
+            </button>
+
+            <button class="nav-search-trigger" id="navSearchTrigger" aria-haspopup="dialog" aria-controls="commandPalette">
+                <i class="fas fa-search"></i>
+                <span>Search shortcuts…</span>
+                <kbd class="nav-search-hint">/</kbd>
+            </button>
+
+            <div class="nav-links">
+                <a href="#" id="homeNav"><i class="fas fa-home"></i> Home</a>
+                <a href="#" id="appsNav"><i class="fas fa-th-large"></i> Apps</a>
+                <a href="#" id="allShortcutsNav"><i class="fas fa-list"></i> All Shortcuts</a>
+                <a href="#" id="favoritesNav"><i class="fas fa-star"></i> Favorites<span class="nav-fav-count" id="navFavCount" hidden>0</span></a>
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-search-trigger" id="mobileSearchTrigger">
+            <i class="fas fa-search"></i> Search shortcuts…
+        </button>
+        <a href="#" id="mobileHomeNav"><i class="fas fa-home"></i> Home</a>
+        <a href="#" id="mobileAppsNav"><i class="fas fa-th-large"></i> Apps</a>
+        <a href="#" id="mobileAllShortcutsNav"><i class="fas fa-list"></i> All Shortcuts</a>
+        <a href="#" id="mobileFavoritesNav"><i class="fas fa-star"></i> Favorites</a>
+    </div>
+
+    <!-- Command-palette style global search overlay -->
+    <div class="command-palette-backdrop" id="cpBackdrop" hidden>
+        <div class="command-palette" id="commandPalette" role="dialog" aria-modal="true" aria-label="Search shortcuts">
+            <div class="cp-input-row">
+                <i class="fas fa-search"></i>
+                <input type="text" id="cpInput" placeholder="Search shortcuts, apps, or actions… (e.g. 'copy', 'ctrl c', 'command palette')" autocomplete="off" aria-label="Search shortcuts">
+                <button id="cpClose" aria-label="Close search"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cp-results" id="cpResults" role="listbox"></div>
+            <div class="cp-footer">
+                <span><kbd class="keycap keycap-tiny">↑</kbd><kbd class="keycap keycap-tiny">↓</kbd> navigate</span>
+                <span><kbd class="keycap keycap-tiny">Enter</kbd> open</span>
+                <span><kbd class="keycap keycap-tiny">Esc</kbd> close</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="appRoot"></main>
+
+    <!-- Mobile filter drawer (populated by JS when a filterable view is active) -->
+    <div class="filter-drawer-backdrop" id="filterDrawerBackdrop" hidden>
+        <div class="filter-drawer" id="filterDrawer" role="dialog" aria-modal="true" aria-label="Filters">
+            <div class="filter-drawer-header">
+                <h3>Filters</h3>
+                <button id="filterDrawerClose" aria-label="Close filters"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="filter-drawer-body" id="filterDrawerBody"></div>
+            <div class="filter-drawer-footer">
+                <button id="filterDrawerApply" class="btn-primary">Show results</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3><i class="fas fa-keyboard"></i> ShortcutKeyWala</h3>
+                <p>Master every keyboard shortcut. Boost productivity 10x.</p>
+                <p class="stats-text" id="footerStats"><i class="fas fa-chart-line"></i> Loading stats…</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="#" id="footerHome">Home</a>
+                <a href="#" id="footerApps">All Apps</a>
+                <a href="#" id="footerShortcuts">All Shortcuts</a>
+            </div>
+            <div>
+                <h4>Supported Platforms</h4>
+                <p><i class="fab fa-windows"></i> Windows • <i class="fab fa-apple"></i> macOS • <i class="fab fa-linux"></i> Linux</p>
+            </div>
+            <div>
+                <h4>Popular Apps</h4>
+                <p>Outlook • Excel • Word • PowerPoint • VS Code • Figma</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 ShortcutKeyWala. All shortcuts are property of respective applications.</p>
+        </div>
+    </footer>
+
+    <script src="data.js?v=20260920"></script>
+    <script src="commands.js?v=20260920"></script>
+    <script src="app.js?v=20260920"></script>
+</body>
+</html>

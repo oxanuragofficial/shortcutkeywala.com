@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!--
+      Only real, statically-served, crawlable HTML documents are listed here.
+      The app's ?app=/?platform= views are client-side-rendered states of a
+      single-page app: the server returns byte-identical HTML for all of
+      them (verified by fetching the raw response), with no distinguishing
+      title, meta description, or OG tags until JavaScript runs. They are
+      not independently indexable pages, so they are intentionally excluded.
+      If per-app static pages are built in future (see project notes), add
+      them here individually.
+    -->
+
+    <url>
+        <loc>https://oxanuragofficial.github.io/shortcutkeywala1/</loc>
+        <lastmod>2026-09-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://oxanuragofficial.github.io/shortcutkeywala1/blog.html</loc>
+        <lastmod>2026-04-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://oxanuragofficial.github.io/shortcutkeywala1/blog-windows-11-shortcuts.html</loc>
+        <lastmod>2026-04-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://oxanuragofficial.github.io/shortcutkeywala1/blog-macos-shortcuts-cheatsheet.html</loc>
+        <lastmod>2026-04-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://oxanuragofficial.github.io/shortcutkeywala1/blog-top-50-excel-shortcuts.html</loc>
+        <lastmod>2026-04-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://oxanuragofficial.github.io/shortcutkeywala1/blog-vs-code-shortcuts-guide.html</loc>
+        <lastmod>2026-04-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://oxanuragofficial.github.io/shortcutkeywala1/blog-outlook-productivity-guide.html</loc>
+        <lastmod>2026-04-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://oxanuragofficial.github.io/shortcutkeywala1/blog-photoshop-shortcuts-mastery.html</loc>
+        <lastmod>2026-04-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+</urlset>
