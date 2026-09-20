@@ -8,10 +8,10 @@ A free, open-source keyboard shortcuts reference for developers and everyday com
 
 <br />
 
-<a href="https://oxanuragofficial.github.io/shortcutkeywala1/">
+<a href="https://oxanuragofficial.github.io/shortcutkeywala.com/">
   <img src="https://img.shields.io/badge/🌐_Live_Demo-Visit_Website-06B6D4?style=for-the-badge" alt="Live Website" />
 </a>
-<a href="https://github.com/oxanuragofficial/shortcutkeywala1">
+<a href="https://github.com/oxanuragofficial/shortcutkeywala.com">
   <img src="https://img.shields.io/badge/GitHub-Source_Code-24292F?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository" />
 </a>
 <a href="LICENSE">
