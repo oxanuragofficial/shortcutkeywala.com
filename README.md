@@ -7,7 +7,7 @@
 A free, open-source keyboard shortcuts reference for developers and everyday computer users.
 
 [![Live Website](https://img.shields.io/badge/🌐_Live_Website-Visit-2563eb?style=for-the-badge)](https://oxanuragofficial.github.io/shortcutkeywala.com/)
-[![GitHub](https://img.shields.io/badge/📦_GitHub-Source_Code-181717?style=for-the-badge\&logo=github)](https://github.com/oxanuragofficial/shortcutkeywala1)
+[![GitHub](https://img.shields.io/badge/📦_GitHub-Source_Code-181717?style=for-the-badge\&logo=github)](https://github.com/oxanuragofficial/shortcutkeywala.com)
 [![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](./LICENSE)
 
 </div>
